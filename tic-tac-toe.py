@@ -13,7 +13,8 @@ def main():
         make_move(player, board)
         player = next_player(player)
     show_board(board)
-    print("Well, wasn't that fun? Thanks for playing!")
+    print("Well, wasn't that fun?")
+    play_again()
 
 def make_board():
     board = []
@@ -53,6 +54,13 @@ def next_player(current):
 def make_move(player, board):
     square = int(input(f"{player}'s turn to choose a square (1-9): "))
     board[square - 1] = player
+
+def play_again():
+    play = input("Do you want to play again (Y/N)? ")
+    if "y" in play.lower():
+        main()
+    elif "n" in play.lower():
+        print("Thanks for playing!")
 
 if __name__ == "__main__":
     main()
